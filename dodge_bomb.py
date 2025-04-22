@@ -15,9 +15,7 @@ DELTA = {
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def gameover(screen: pg.Surface, img1: pg.Surface) -> None:
-    """
-    ゲームオーバーになったときに使う関数。
-    """    black_surf = pg.Surface((WIDTH, HEIGHT))
+    black_surf = pg.Surface((WIDTH, HEIGHT))
     black_surf.set_alpha(128)  # 半透明（0=透明, 255=不透明）
     black_surf.fill((0, 0, 0))  # 黒で塗る
     screen.blit(black_surf, (0, 0))
@@ -27,7 +25,7 @@ def gameover(screen: pg.Surface, img1: pg.Surface) -> None:
     txt = font.render("Game Over", True, (255, 255, 255))
     screen.blit(txt, (400, 300))
     pg.display.update()
-    time.sleep(2)
+    time.sleep(5)
 
 def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
     yoko, tate = True, True
@@ -95,6 +93,7 @@ def main():
         pg.display.update()
         tmr += 1
         clock.tick(50)
+
 
 if __name__ == "__main__":
     pg.init()
